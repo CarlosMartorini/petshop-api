@@ -18,4 +18,4 @@ class Group(models.Model):
 class Characteristic(models.Model):
     name = models.CharField(max_length=255)
 
-    animals = models.ManyToManyField('Animal', related_name='characteristics')
+    animals = models.ManyToManyField(Animal, related_name='characteristics')
