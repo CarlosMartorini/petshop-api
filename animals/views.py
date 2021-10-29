@@ -48,3 +48,27 @@ class AnimalView(APIView):
         
         return Response(serialized.data, status=status.HTTP_200_OK)
 
+
+class AnimalById(APIView):
+    def get(self, request, animal_id):
+        try:
+            animal = Animal.objects.get(id=animal_id)
+
+            serialized = AnimalSerializer(animal)
+
+            return Response(serialized.data, status=status.HTTP_200_OK)
+        
+        except Animal.DoesNotExist:
+            return Response({'error': 'Animal not found!'}, status=status.HTTP_404_NOT_FOUND)
+    
+
+    def delete(self, request, animal_id):
+        try:
+            animal = Animal.objects.get(id=animal_id)
+
+            animal.delete()
+
+            return Response('', status=status.HTTP_204_NO_CONTENT)
+        
+        except:
+            return Response({'error': 'Animal not found!'}, status=status.HTTP_404_NOT_FOUND)
