@@ -3,9 +3,7 @@ from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from animals.serializers import AnimalSerializer
-from .models import Animal
-from ..characteristics.models import Characteristic
-from ..groups.models import Group
+from .models import Animal, Group, Characteristic
 from rest_framework import status
 
 
