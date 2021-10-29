@@ -7,6 +7,6 @@ class Animal(models.Model):
     name = models.CharField(max_length=255)
     age = models.FloatField()
     weight = models.FloatField()
-    sex = models.CharField(max_length=10)
+    sex = models.CharField(max_length=255)
     
     group = models.ForeignKey('groups.Group', on_delete=models.CASCADE, related_name='animals')
