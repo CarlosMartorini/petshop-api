@@ -49,7 +49,7 @@ class AnimalView(APIView):
         return Response(serialized.data, status=status.HTTP_200_OK)
 
 
-class AnimalById(APIView):
+class AnimalViewById(APIView):
     def get(self, request, animal_id):
         try:
             animal = Animal.objects.get(id=animal_id)
