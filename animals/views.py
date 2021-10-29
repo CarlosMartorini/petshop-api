@@ -12,6 +12,7 @@ class AnimalView(APIView):
         data = request.data
         
         group = data.pop('group')
+        characteristics = data.pop('characteristics')
 
         if not Group.objects.filter(name=group['name']):
             new_group = Group.objects.create(**group)
@@ -19,8 +20,6 @@ class AnimalView(APIView):
             new_group = Group.objects.get(name=group['name'])
 
         new_animal = Animal.objects.create(**data, group=new_group)
-
-        characteristics = data.pop('characteristics')
 
         for item in characteristics:
             item_name = item['name']
