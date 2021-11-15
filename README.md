@@ -1,4 +1,4 @@
-# Kenzie Pet
+# Petshop API
 
 This is a project to help pet shops register the animals they receive for treatment, specifying the groups of animals and their characteristics
 
